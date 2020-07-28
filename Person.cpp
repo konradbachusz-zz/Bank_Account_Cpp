@@ -1,14 +1,37 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main() {
-    std::cout << "Welcome to your bank" << std::endl;
-    
 
-    string name;
+
+
+class Person {       // The class
+    public:             // Access specifier
+        int age;        // Attribute (int variable)
+        string name;  // Attribute (string variable)
+        bool has_account;
+        int ID; 
+
+        //Methods
+        void apply(){
+            ID=rand() % 100000 + 999999;
+            has_account=true;
+            cout << "\nAccount " << ID << " Opened" << endl;
+        }
+    };
+
+
+int main() {
+    Person myObj;
+
+    std::cout << "Welcome to your bank" << std::endl;
+
     cout << "What's your name? ";
-    cin >> name;
-    cout << "Welcome " << name << endl;
+    cin >> myObj.name;
+
+    cout << "Confirm your age ";
+    cin >> myObj.age;
+    cout << "Welcome " << myObj.name << endl;
 
     cout << "What would you like to do today?\n 1 Open an Account \n 2 Deposit Funds \n 3 Make a Payment \n 4 Withdraw Funds \n 5 Close an Account";
     
@@ -19,25 +42,34 @@ int main() {
 
     switch(x) {
         case 1:
-            cout << "You selected: Open an Account";
+            cout << "\nYou selected: Open an Account";
+            cout << "\nDo you already have an account? Y/N";
+            myObj.apply();
+            // string answer;
+            // cin >> answer;
+            // if (answer.compare('Yes')!=0) {
+            //     cout << "\nYou already have an account!";
+            // } else {
+            //     myObj.apply();
+            // }
         break;
         case 2:
-            cout << "You selected: Deposit Funds";
+            cout << "\nYou selected: Deposit Funds";
         break;
 
         case 3:
-            cout << "You selected: Make a Payment";
+            cout << "\nYou selected: Make a Payment";
         break;
         case 4:
-            cout << "You selected: Withdraw Funds";
+            cout << "\nYou selected: Withdraw Funds";
         break;
         case 5:
-            cout << "You selected: Close an Account";
+            cout << "\nYou selected: Close an Account";
         break;
 
 
         default:
-        cout << "Incorrect answer" << endl;
+        cout << "\nIncorrect answer" << endl;
         }       
 
     return 0;   
